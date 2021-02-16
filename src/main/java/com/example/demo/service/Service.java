@@ -11,8 +11,6 @@ public class Service {
 
         return celsius;
 
-        int start = (int) (System.currentTimeMillis() * 1000);
-
     }
 
     public double getKelvin(Double celsius){
@@ -24,6 +22,16 @@ public class Service {
 
     public double getkilometers(double miles){
 
+        double kilometer = miles / 0.62137;
+
+        return kilometer;
+    }
+
+    public double getMiels(double kilometer){
+
+        double miles = kilometer * 0.62137;
+
+        return miles;
     }
 
 
