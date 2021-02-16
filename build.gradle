@@ -17,8 +17,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0.1'
-    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
 }
 
 test {
