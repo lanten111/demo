@@ -19,8 +19,8 @@ public class Api {
 
     Service service = new Service();
 
-    @GET
-    @Path("/ktoc")
+//    @GET
+    @GetMapping("/ktoc")
     public Double getCelsius(@RequestParam Double kelvin){
         return  service.getCelcius(kelvin);
     }
