@@ -5,41 +5,59 @@ created by mumakhado on 2021/02/16
 
 import com.example.demo.service.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //import javax.ws.rs.Path;
 
 @RestController
-@Path("/conversions")
+@RequestMapping("/conversions")
 public class Api {
 
     Service service = new Service();
+    public static Logger logger = Logger.getLogger("Log");
 
-//    @GET
     @GetMapping("/ktoc")
     public Double getCelsius(@RequestParam Double kelvin){
-        return  service.getCelcius(kelvin);
+        Instant start = Instant.now();
+        Double celcius = service.getCelcius(kelvin);
+        Instant end = Instant.now();
+        logger.log(Level.INFO, "execution duration: "+ Duration.between(start, end).getSeconds());
+        return celcius;
     }
 
-    @GET
-    @Path("/ctok")
+    @GetMapping("/ctok")
     public Double getkelvin(@RequestParam Double celsius){
-        return  service.getKelvin(celsius);
+        Instant start = Instant.now();
+        double kelvin = service.getKelvin(celsius);
+        Instant end = Instant.now();
+        logger.log(Level.INFO, "execution duration: "+ Duration.between(start, end).getSeconds());
+        return kelvin;
     }
 
-    @GET
-    @Path("/mtok")
+    @GetMapping("/mtok")
     public Double getkilometers(@RequestParam Double miles){
-        return  service.getkilometers(miles);
+        Instant start = Instant.now();
+        double kilo =  service.getkilometers(miles);
+        Instant end = Instant.now();
+        logger.log(Level.INFO, "execution duration: "+ Duration.between(start, end).getSeconds());
+        return kilo;
     }
 
-    @GET
-    @Path("/ktom")
+    @GetMapping("/ktom")
     public Double getMiles(@RequestParam Double kilometers){
-        return  service.getMiles(kilometers);
+        Instant start = Instant.now();
+        double miles = service.getMiles(kilometers);
+        Instant end = Instant.now();
+        logger.log(Level.INFO, "execution duration: "+ Duration.between(start, end).getSeconds());
+        return miles;
     }
 }
