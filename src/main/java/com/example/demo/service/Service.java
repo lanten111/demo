@@ -27,7 +27,7 @@ public class Service {
         return kilometer;
     }
 
-    public double getMiels(double kilometer){
+    public double getMiles(double kilometer){
 
         double miles = kilometer * 0.62137;
 
